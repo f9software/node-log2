@@ -1,38 +1,39 @@
-export enum Type {
-    INFO = 1,
-    WARNING = 2,
-    ERROR = 3,
-    SECURITY = 4
-}
-
-export interface IWriter {
-    write(type: Type, data: Object, author: string);
-}
+import {IWriter, Type} from './IWriter';
 
 export class Log {
-    private writer: IWriter;
+    private writers: IWriter[] = [];
 
-    public constructor(writer: IWriter) {
-        this.writer = writer;
+    constructor(writer: IWriter = null) {
+        if (writer) {
+            this.addWriter(writer);
+        }
     }
 
-    public info(data, author) {
+    /**
+     * Add writer.
+     * @param {IWriter} writer
+     */
+    public addWriter(writer: IWriter) {
+        this.writers.push(writer);
+    }
+
+    public info(data: any, author: string) {
         this.write(Type.INFO, data, author);
     }
 
-    public warning(data, author) {
+    public warning(data: any, author: string) {
         this.write(Type.WARNING, data, author);
     }
 
-    public error(data, author) {
+    public error(data: any, author: string) {
         this.write(Type.ERROR, data, author);
     }
 
-    public security(data, author) {
+    public security(data: any, author: string) {
         this.write(Type.SECURITY, data, author);
     }
 
-    public write(type: Type, data: Object, author: string) {
-        this.writer.write(type, data, author);
+    public write(type: Type, data: any, author: string) {
+        this.writers.forEach(writer => writer.write(type, data, author));
     }
 }

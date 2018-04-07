@@ -1,15 +1,8 @@
-import {Type, IWriter} from "./Log";
+import {Type, IWriter} from "./IWriter";
 import * as mysql from "mysql";
 
 export class MySQLWriter implements IWriter {
-    private connection: mysql.IConnection;
-
-    private table: string;
-
-    public constructor(connection: mysql.IConnection, table: string) {
-        this.connection = connection;
-        this.table = table;
-    }
+    constructor(private connection: mysql.Connection, private table: string) {}
 
     write(type: Type, data: Object, author: string) {
         const values = {

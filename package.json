@@ -13,9 +13,9 @@
   ],
   "author": "ii",
   "license": "MIT",
-  "dependencies": {
-    "@types/mysql": "0.0.34",
-    "mysql": "^2.13.0"
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mysql": "^2.15.4",
+    "mysql": "^2.15.0"
+  }
 }
