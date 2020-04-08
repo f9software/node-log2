@@ -1,6 +1,6 @@
 {
   "name": "node-log2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple log utility to be used in Node.js applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/mysql": "^2.15.4",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "typescript": "^3.8.3"
   }
 }
