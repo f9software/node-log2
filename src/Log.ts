@@ -3,7 +3,7 @@ import {IWriter, Type} from './IWriter';
 export class Log {
     private writers: IWriter[] = [];
 
-    constructor(writer: IWriter = null) {
+    constructor(writer?: IWriter) {
         if (writer) {
             this.addWriter(writer);
         }
